@@ -9,6 +9,7 @@ class ListTest {
     @Test
     void test() {
         IList<Integer> list = new MyArrayList<>();
+
         System.out.println(list.size());
         list.add(2);
         list.add(7);
@@ -31,6 +32,14 @@ class ListTest {
         System.out.println(list.get(4));
 
 
+        System.out.println("Iterator:");
+        for (Integer integer : list) {
+            System.out.println(integer);
 
+        }
+        System.out.println("=============:");
     }
+
+
+
 }

@@ -145,6 +145,22 @@ public class MyArrayList<E> implements IList<E> {
 
         @Override
         public Iterator<E> iterator () {
-            return null;
+            return new Iterator<E>() {
+                int count = 0;
+
+
+                @Override
+                public boolean hasNext() {
+                    return count < size;
+                }
+
+                @Override
+                public E next() {
+                    @SuppressWarnings("unchecked")
+                    E element = (E) elements[count];
+                    count++;
+                    return element;
+                }
+            };
         }
     }
