@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/29_JAVA_Collections_Framework.iml" filepath="$PROJECT_DIR$/29_JAVA_Collections_Framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/29_ArrayList.iml" filepath="$PROJECT_DIR$/29_ArrayList.iml" />
     </modules>
   </component>
 </project>
