@@ -10,35 +10,53 @@ class ListTest {
     void test() {
         IList<Integer> list = new MyArrayList<>();
 
-        System.out.println(list.size());
+        System.out.println("Size: "+ list.size());
         list.add(2);
         list.add(7);
         list.add(3);
         list.add(5);
         list.add(null);
         list.add(7);
-        System.out.println(list.size());
-        System.out.println(list.get(1));
-        System.out.println("---------");
-        System.out.println(list.indexOf(7));
-        System.out.println(list.lastIndexOf(7));
-        System.out.println(list.contains(11));
-        System.out.println(list.isEmpty());
-        System.out.println("---------");
+//        System.out.println(list.size());
+//        System.out.println(list.get(1));
+//        System.out.println("---------");
+//        System.out.println(list.indexOf(7));
+//        System.out.println(list.lastIndexOf(7));
+//        System.out.println(list.contains(11));
+//        System.out.println(list.isEmpty());
+//        System.out.println("---------");
+//
+//        list.remove((Integer)3);
+//        System.out.println(list.contains(3));
+//        list.set(4, 11);
+//        System.out.println(list.get(4));
 
-        list.remove((Integer)3);
-        System.out.println(list.contains(3));
-        list.set(4, 11);
-        System.out.println(list.get(4));
 
+        System.out.println("Size after adding elements: "+ list.size());
 
         System.out.println("Iterator:");
-        for (Integer integer : list) {
-            System.out.println(integer);
+        for (Integer element : list) {
+            System.out.println(element);
 
         }
-        System.out.println("=============:");
+        System.out.println("=============");
+        System.out.println();
+
+        System.out.println("Size before add(int index, E element): "+ list.size());
+        list.add(3, 2555);
+        list.add(6, null);
+        System.out.println("Size after add(int index, E element): "+ list.size());
+        System.out.println("Iterator:  after add(int index, E element):");
+        for (Integer element : list) {
+            System.out.println(element);
+
+        }
+        System.out.println("=============");
+        System.out.println();
+
     }
+
+
 
 
 

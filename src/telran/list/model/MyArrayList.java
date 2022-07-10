@@ -34,8 +34,10 @@ public class MyArrayList<E> implements IList<E> {
 
     @Override
     public boolean add(int index, E element) {
+        checkIndex(index);
         ensureCapacity();
-        elements[size++] = element;
+        System.arraycopy(elements, index, elements, index+1, ++size-index);
+        elements[index] = element;
         //TODO
         return true;
     }
@@ -123,7 +125,7 @@ public class MyArrayList<E> implements IList<E> {
         }
 
         @Override
-        public E remove ( int index){
+        public E remove (int index){
             checkIndex(index);
             @SuppressWarnings("unchecked")
             E victim = (E) elements[index];
