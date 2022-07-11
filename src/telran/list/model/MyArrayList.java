@@ -25,6 +25,7 @@ public class MyArrayList<E> implements IList<E> {
         elements = new Object[initialCapacity];
     }
 
+    //O(1)
     @Override
     public boolean add(E element) {
         ensureCapacity();
@@ -32,6 +33,7 @@ public class MyArrayList<E> implements IList<E> {
         return true;
     }
 
+    //O(1)
     @Override
     public boolean add(int index, E element) {
         checkIndex(index);
@@ -41,6 +43,8 @@ public class MyArrayList<E> implements IList<E> {
         return true;
     }
 
+
+    //O(1)
     private void ensureCapacity() {
         if (size == MAX_ARRAY_SIZE) {
             throw new OutOfMemoryError();
@@ -55,6 +59,7 @@ public class MyArrayList<E> implements IList<E> {
         }
     }
 
+    //O(n)
     @Override
     public void clear() {
         for (int i = 0; i < size; i++) {
@@ -68,13 +73,14 @@ public class MyArrayList<E> implements IList<E> {
     }
 
 
+    //O(1)
     @Override
     public int size() {
         return size;
     }
 
 
-
+    //O(1)
     @SuppressWarnings("unchecked")
     @Override
     public E get(int index) {
@@ -82,12 +88,14 @@ public class MyArrayList<E> implements IList<E> {
         return (E) elements[index];
     }
 
+    //O(1)
     private void checkIndex(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException(index);
         }
     }
 
+    //O(n)
     @Override
     public int indexOf(Object o) {
         if (o != null) {
@@ -108,6 +116,8 @@ public class MyArrayList<E> implements IList<E> {
         return -1;
     }
 
+
+    //O(n)
     @Override
     public int lastIndexOf(Object o) {
 
@@ -129,45 +139,50 @@ public class MyArrayList<E> implements IList<E> {
             return -1;
         }
 
-        @Override
-        public E remove (int index){
-            checkIndex(index);
-            @SuppressWarnings("unchecked")
-            E victim = (E) elements[index];
-            System.arraycopy(elements, index + 1, elements, index, size - index - 1);
-            size--;
-            elements[size] = null;
-            return victim;
-        }
-
-        @Override
-        public E set ( int index, E element){
-            checkIndex(index);
-            @SuppressWarnings("unchecked")
-            E victim = (E) elements[index];
-            elements[index] = element;
-
-            return victim;
-        }
-
-        @Override
-        public Iterator<E> iterator () {
-            return new Iterator<E>() {
-                int count = 0;
 
 
-                @Override
-                public boolean hasNext() {
-                    return count < size;
-                }
-
-                @Override
-                public E next() {
-                    @SuppressWarnings("unchecked")
-                    E element = (E) elements[count];
-                    count++;
-                    return element;
-                }
-            };
-        }
+    //O(1)
+    @Override
+    public E remove (int index){
+        checkIndex(index);
+        @SuppressWarnings("unchecked")
+        E victim = (E) elements[index];
+        System.arraycopy(elements, index + 1, elements, index, size - index - 1);
+        size--;
+        elements[size] = null;
+        return victim;
     }
+
+    //O(1)
+    @Override
+    public E set ( int index, E element){
+        checkIndex(index);
+        @SuppressWarnings("unchecked")
+        E victim = (E) elements[index];
+        elements[index] = element;
+
+        return victim;
+    }
+
+    //O(n)
+    @Override
+    public Iterator<E> iterator () {
+        return new Iterator<E>() {
+            int count = 0;
+
+
+            @Override
+            public boolean hasNext() {
+                return count < size;
+            }
+
+            @Override
+            public E next() {
+                @SuppressWarnings("unchecked")
+                E element = (E) elements[count];
+                count++;
+                return element;
+            }
+        };
+    }
+}
