@@ -38,7 +38,6 @@ public class MyArrayList<E> implements IList<E> {
         ensureCapacity();
         System.arraycopy(elements, index, elements, index+1, ++size-index);
         elements[index] = element;
-        //TODO
         return true;
     }
 
@@ -58,7 +57,13 @@ public class MyArrayList<E> implements IList<E> {
 
     @Override
     public void clear() {
-        //TODO
+        for (int i = 0; i < size; i++) {
+            if (elements[i] != null) {
+                elements[i] = null;
+            }
+
+        }
+        size = 0;
 
     }
 
