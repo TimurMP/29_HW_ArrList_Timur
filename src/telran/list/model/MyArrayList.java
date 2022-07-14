@@ -36,7 +36,9 @@ public class MyArrayList<E> implements IList<E> {
     //O(1)
     @Override
     public boolean add(int index, E element) {
-        checkIndex(index);
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException(index);
+        }
         ensureCapacity();
         System.arraycopy(elements, index, elements, index+1, ++size-index);
         elements[index] = element;
